@@ -156,7 +156,7 @@ $\displaystyle \\
 \end{document}''')
         temp.close()
 
-        os.system('latex %s.tex' %filename)
+        os.system('latex -interaction nonstopmode -halt-on-error -file-line-error %s.tex' %filename)
 
         # Requires package dvipng: converts dvi to png.
         # -D 500 sets resolution to 500 dpi, 
