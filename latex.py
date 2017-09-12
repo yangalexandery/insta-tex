@@ -27,6 +27,10 @@ from PIL import Image
 import tkinter.messagebox as tkMessageBox
 
 
+if __name__ == '__main__':
+    os.chdir(os.path.dirname(os.path.realpath(__file__)))
+
+
 class AppLatexConvert:
     '''Application to convert latex math-mode code to a .png file.
 This python application will convert LaTeX (math-mode) code to a png image file.
