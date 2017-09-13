@@ -88,6 +88,9 @@ The script will crop your text appropriately, but cannot handle more than 1 page
         fEntry=Frame(self.mainWindow)
 
         self.tEntry=Text(fEntry, bg='white', height='5')
+        def tex_wrapper(event):
+            self.tex()
+        self.tEntry.bind('<Return>', tex_wrapper)
         self.tEntry.pack(padx=10)
 
         fEntry.pack()
@@ -117,6 +120,16 @@ The script will crop your text appropriately, but cannot handle more than 1 page
 
         fPreview.pack(fill=X)
 
+        def hide_window(event):
+            self.mainWindow.master.wm_attributes('-alpha', 0.1)
+
+
+        def show_window(event):
+            self.mainWindow.master.wm_attributes('-alpha', 1.0)
+
+
+        self.mainWindow.master.bind('<FocusOut>', hide_window)
+        self.mainWindow.master.bind('<Button-1>', show_window)
         self.mainWindow.pack()
 
 
